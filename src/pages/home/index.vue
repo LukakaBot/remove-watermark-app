@@ -5,7 +5,30 @@
 	</div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { fetchNoWatermarkVideoUrl } from '@/api/video';
+import { useLoading } from '@/hooks';
+
+const [loading, setLoading] = useLoading();
+
+const shareContent = ref('');
+
+async function getNoWatermarkVideoUrl() {
+	try {
+		setLoading(true);
+		const data = await fetchNoWatermarkVideoUrl(shareContent.value);
+		console.log(data.play_addr.url_list[0]);
+	} finally {
+		setLoading(false);
+	}
+}
+
+onMounted(() => {
+	shareContent.value =
+		'8.18 https://v.douyin.com/JyCk5gy/ 复制佌鏈接，da鐦Dou音搜索，直接观看視频！';
+	getNoWatermarkVideoUrl();
+});
+</script>
 
 <style scoped>
 .logo {
