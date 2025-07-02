@@ -1,0 +1,48 @@
+{
+  "easycom": {
+    "autoscan": true,
+    "custom": {
+      "^wd-(.*)": "wot-design-uni/components/wd-$1/wd-$1.vue"
+    }
+  },
+  "pages": [
+    {
+      "path": "pages/home/index",
+      "type": "home",
+      "style": {
+        "navigationBarTitleText": "首页"
+      },
+      "name": "home",
+      "layout": "page"
+    },
+    {
+      "path": "pages/category/index",
+      "type": "category",
+      "style": {},
+      "name": "category",
+      "layout": "page"
+    },
+    {
+      "path": "pages/logs/index",
+      "type": "logs",
+      "style": {
+        "navigationBarTitleText": "日志"
+      },
+      "name": "logs",
+      "layout": false
+    },
+    {
+      "path": "pages/mine/index",
+      "type": "mine",
+      "style": {},
+      "name": "mine",
+      "layout": "page"
+    },
+    {
+      "path": "pages/video/index",
+      "type": "page",
+      "style": {}
+    }
+  ],
+  "subPackages": []
+}
