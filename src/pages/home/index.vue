@@ -41,6 +41,9 @@
 <script setup lang="ts">
 import type { VideoInfo } from '@/api/video/types';
 import { fetchVideoInfo } from '@/api/video';
+import { useVideoStore } from '@/store';
+
+const videoStore = useVideoStore();
 
 // const shareContent = ref('');
 // TODO: debug
@@ -85,6 +88,7 @@ async function handleSubmit() {
 			title: '加载中',
 		});
 		videoInfo.value = await fetchVideoInfo(shareContent.value);
+		videoStore.setVideoInfo(videoInfo.value);
 		uni.showToast({
 			title: '获取视频信息成功',
 			icon: 'none',
